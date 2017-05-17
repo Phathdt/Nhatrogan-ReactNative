@@ -3,14 +3,13 @@ import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
-  Dimensions,
   Image,
   Text,
   TouchableOpacity
 } from 'react-native';
 import { Icon } from 'native-base';
 
-const { height } = Dimensions.get('window');
+// const { height } = Dimensions.get('window');
 
 export default class Header extends Component {
   Search() {
@@ -21,14 +20,20 @@ export default class Header extends Component {
       <View style={styles.wrap} >
         <View style={styles.icon}>
           <Image
-          style={{width: 40, height: 40}}
-          source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
+          style={{ width: 40, height: 40 }}
+          source={{ uri: 'https://facebook.github.io/react/img/logo_og.png' }}
           />
         </View>
         <View style={styles.text}>
           <Text>Nha tro gan</Text>
         </View>
-        <View style={{ flex: 1, marginTop: 10 , marginRight: -20 }}>
+        <View
+          style={{
+           flex: 1,
+           marginTop: 5,
+           marginRight: -20
+         }}
+        >
           <TouchableOpacity onPress={this.Search}>
             <Icon name='ios-search' />
           </TouchableOpacity>
@@ -40,7 +45,7 @@ export default class Header extends Component {
 
 const styles = StyleSheet.create({
   wrap: {
-    height: height / 16,
+    height: 40,
     flexDirection: 'row',
     backgroundColor: 'powderblue',
   },

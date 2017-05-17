@@ -5,8 +5,11 @@ import {
   StyleSheet,
   Image
 } from 'react-native';
+import Header from '../Header.js';
+import ListPosts from '../Post/ListPosts';
 
 export default class Home extends Component {
+
   // navigator
   // doi hinh anh lai
   static navigationOptions = {
@@ -19,7 +22,9 @@ export default class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header />
         <Text>I'm the Home component</Text>
+        <ListPosts />
       </View>
     );
   }

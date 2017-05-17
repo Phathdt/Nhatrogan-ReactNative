@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Image
 } from 'react-native';
+import Header from '../Header.js';
 
 export default class User extends Component {
   // navigator
@@ -19,6 +20,7 @@ export default class User extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header />
         <Text>I'm the User component</Text>
       </View>
     );

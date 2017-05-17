@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Image
 } from 'react-native';
+import Header from '../Header.js';
 
 export default class Notification extends Component {
   // navigator
@@ -19,6 +20,7 @@ export default class Notification extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header />
         <Text>I'm the Notification component</Text>
       </View>
     );
