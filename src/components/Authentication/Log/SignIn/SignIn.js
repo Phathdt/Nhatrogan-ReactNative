@@ -3,23 +3,22 @@ import {
   View,
   Text,
   StyleSheet,
-  Image
+  Button
 } from 'react-native';
 
-export default class Home extends Component {
-  // navigator
-  // doi hinh anh lai
+export default class SignIn extends Component {
   static navigationOptions = {
-   tabBarLabel:
-   <Image
-    style={{ width: 50, height: 50 }}
-    source={{ uri: 'https://facebook.github.io/react/img/logo_og.png' }}
-  />,
-   };
+    title: 'Sign In',
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the Home component</Text>
+        <Text>I'm the SignIn component</Text>
+        <Button
+          onPress={() => this.props.navigation.navigate('SignUp')}
+          title="Go to SignUp"
+        />
       </View>
     );
   }

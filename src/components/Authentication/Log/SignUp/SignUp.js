@@ -6,6 +6,9 @@ import {
 } from 'react-native';
 
 export default class SignUp extends Component {
+  static navigationOptions = {
+    title: 'Sign Up',
+  };
   render() {
     return (
       <View style={styles.container}>
