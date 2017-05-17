@@ -17,7 +17,7 @@ export default class Home extends Component {
    <Image
     style={{ width: 50, height: 50 }}
     source={{ uri: 'https://facebook.github.io/react/img/logo_og.png' }}
-  />,
+   />,
    };
   render() {
     return (
