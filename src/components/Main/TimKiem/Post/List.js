@@ -1,11 +1,10 @@
-/* @flow */
-
 import React, { Component } from 'react';
 import {
   View,
   Text,
   ListView,
-  TouchableOpacity
+  TouchableOpacity,
+  StyleSheet
 } from 'react-native';
 import { Container, Header, Item, Input, Icon, Button } from 'native-base';
 
@@ -42,11 +41,13 @@ export default class List extends Component {
   taoHang(row) {
     return (
       <TouchableOpacity onPress={() => this.props.gotoDetail(row._id)}>
+        <View style={styles.list}>
         <Text>{row.title}</Text>
         <Text>{row.pricing}</Text>
         <Text>{row.area}</Text>
         <Text>{row.images}</Text>
         <Text>{URL}/{row._id}</Text>
+        </View>
       </TouchableOpacity>
 
     );
@@ -79,11 +80,20 @@ export default class List extends Component {
           renderRow={(row) => this.taoHang(row)}
         />
       </View>
-      // {/* <View>
-      //   <TouchableOpacity onPress={() => this.props.gotoDetail('1')}>
-      //     <Text>I'm the List component</Text>
-      //   </TouchableOpacity>
-      // </View> */}
     );
   }
 }
+const styles = StyleSheet.create({
+list: {
+  flex: 1,
+  flexDirection: 'row',
+  //backgroundColor: '#16a085',
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginLeft: 4,
+    marginRight: 4,
+    padding: 4,
+    borderBottomWidth: 5,
+    borderColor: 'lightgray'
+}
+});

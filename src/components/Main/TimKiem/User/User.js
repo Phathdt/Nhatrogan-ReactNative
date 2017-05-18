@@ -14,7 +14,7 @@ export default class User extends Component {
    tabBarLabel:
    <Image
     style={{ width: 50, height: 50 }}
-    source={{ uri: 'https://facebook.github.io/react/img/logo_og.png' }}
+    source={require('../../../../images/ic_person_white_48dp_1x.png')}
   />,
    };
   render() {

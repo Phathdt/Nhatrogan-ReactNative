@@ -16,7 +16,7 @@ export default class Home extends Component {
    tabBarLabel:
    <Image
     style={{ width: 50, height: 50 }}
-    source={{ uri: 'https://facebook.github.io/react/img/logo_og.png' }}
+    source={require('../../../../images/ic_home_white_48dp_1x.png')}
    />,
   };
 
