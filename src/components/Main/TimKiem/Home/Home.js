@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {
-  View,
-  Text,
   StyleSheet,
-  Image
+  Image,
 } from 'react-native';
-import Header from '../Header.js';
-import ListPosts from '../Post/ListPosts';
+import { Navigator } from 'react-native-deprecated-custom-components';
+
+import List from '../Post/List';
+import Detail from '../Post/Detail';
 
 export default class Home extends Component {
 
@@ -18,20 +18,38 @@ export default class Home extends Component {
     style={{ width: 50, height: 50 }}
     source={{ uri: 'https://facebook.github.io/react/img/logo_og.png' }}
    />,
-   };
+  };
+
+  renderScene(route, navigator) {
+    switch (route.name) {
+      case 'list': return (
+        <List
+          gotoDetail={(a) => {
+            navigator.push({
+              name: 'detail',
+              thamso: { id: a }
+            });
+        }}
+        />
+      );
+      case 'detail': return (
+        <Detail
+          backList={() => {
+            navigator.pop();
+          }}
+          id={route.thamso.id}
+        />
+        );
+      default: return null;
+    }
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Header />
-        <Text>I'm the Home component</Text>
-        <ListPosts />
-      </View>
+      <Navigator
+        initialRoute={{ name: 'list' }}
+        renderScene={this.renderScene}
+      />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

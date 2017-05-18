@@ -3,7 +3,8 @@ import {
   View,
   Text,
   StyleSheet,
-  Image
+  Image,
+  Button
 } from 'react-native';
 import Header from '../Header.js';
 
@@ -22,6 +23,12 @@ export default class NearMe extends Component {
       <View style={styles.container}>
         <Header />
         <Text>I'm the NearMe component</Text>
+        <Button
+          onPress={() => this.props.navigation.navigate('Home')}
+          title="Learn More"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
       </View>
     );
   }

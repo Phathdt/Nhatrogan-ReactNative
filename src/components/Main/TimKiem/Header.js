@@ -27,17 +27,6 @@ export default class Header extends Component {
         <View style={styles.text}>
           <Text>Nha tro gan</Text>
         </View>
-        <View
-          style={{
-           flex: 1,
-           marginTop: 5,
-           marginRight: -20
-         }}
-        >
-          <TouchableOpacity onPress={this.Search}>
-            <Icon name='ios-search' />
-          </TouchableOpacity>
-        </View>
       </View>
     );
   }
