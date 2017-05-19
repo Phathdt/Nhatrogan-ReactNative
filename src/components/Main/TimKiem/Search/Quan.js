@@ -57,7 +57,6 @@ export default class Quan extends Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={() => this.props.gotoList('1')} >
-          <Text>I'm the Quan component</Text>
         </TouchableOpacity>
         <ListView
           dataSource={this.state.dataSource}

@@ -6,7 +6,8 @@ import {
   Text,
   StyleSheet,
   ListView,
-  Image
+  Image,
+  Button
 } from 'react-native';
 
 const URL = 'http://nhatrogan.com/api/v1/posts';
@@ -61,6 +62,12 @@ export default class Detail extends Component {
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(row) => this.taoHang(row)}
+        />
+        <Button
+          onPress={() => this.props.backQuan()}
+          title="Quay ve chon Quan"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
         />
       </View>
     );

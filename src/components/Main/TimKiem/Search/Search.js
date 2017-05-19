@@ -47,6 +47,11 @@ export default class Search extends Component {
         );
       case 'detail': return (
         <Detail
+          backQuan={() => {
+            navigator.push({
+              name: 'quan',
+            });
+          }}
           id={route.thamso2.id}
         />
         );
