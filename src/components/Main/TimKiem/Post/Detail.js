@@ -4,7 +4,8 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  ListView
+  ListView,
+  Image
 } from 'react-native';
 
 const URL = 'http://nhatrogan.com/api/v1/posts';
@@ -34,24 +35,28 @@ export default class Detail extends Component {
   }
   taoHang(row) {
     return (
-      <View>
-        <Text>Hang 1</Text>
-        <Text>{row._id}</Text>
-        <Text>{row.title}</Text>
-        <Text>{row.pricing}</Text>
-        <Text>{row.area}</Text>
-        <Text>{row.images}</Text>
-      </View>
+      <TouchableOpacity onPress={() => this.props.backList()}>
+        <View >
+          <View>
+            <Image
+              style={{width: 50, height: 50}}
+              source={{uri: row.images }}
+            />
+          </View>
+        <View >
+          <Text style={styles.title}>{row.title}</Text>
+          <Text style={styles.gia}> Gia: {row.pricing} </Text>
+          <Text>Dien tich: {row.area}</Text>
+          <Text>{row.shortDescription}</Text>
+        </View>
+
+        </View>
+      </TouchableOpacity>
     );
   }
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => this.props.backList()}>
-          <Text>I'm the Detail component</Text>
-          <Text>{URL}{this.props.id}</Text>
-        </TouchableOpacity>
-        <Text>Dang tao listview</Text>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(row) => this.taoHang(row)}
@@ -65,4 +70,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  gia : {
+    color : '#2ecc71'
+  },
+  title: {
+    color: '#e74c3c'
+  }
 });

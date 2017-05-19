@@ -4,7 +4,8 @@ import {
   Text,
   ListView,
   TouchableOpacity,
-  StyleSheet
+  StyleSheet,
+  Image
 } from 'react-native';
 import { Container, Header, Item, Input, Icon, Button } from 'native-base';
 
@@ -42,11 +43,18 @@ export default class List extends Component {
     return (
       <TouchableOpacity onPress={() => this.props.gotoDetail(row._id)}>
         <View style={styles.list}>
-        <Text>{row.title}</Text>
-        <Text>{row.pricing}</Text>
-        <Text>{row.area}</Text>
-        <Text>{row.images}</Text>
-        <Text>{URL}/{row._id}</Text>
+          <View style={styles.image}>
+            <Image
+              style={{width: 50, height: 50}}
+              source={{uri: row.images }}
+            />
+          </View>
+        <View style={styles.detail}>
+          <Text style={styles.title}>{row.title}</Text>
+          <Text>{row.pricing}</Text>
+          <Text>{row.area}</Text>
+        </View>
+
         </View>
       </TouchableOpacity>
 
@@ -87,7 +95,6 @@ const styles = StyleSheet.create({
 list: {
   flex: 1,
   flexDirection: 'row',
-  //backgroundColor: '#16a085',
   justifyContent: 'center',
   alignItems: 'center',
   marginLeft: 4,
@@ -95,5 +102,14 @@ list: {
     padding: 4,
     borderBottomWidth: 5,
     borderColor: 'lightgray'
+},
+image: {
+  flex: 1,
+},
+detail: {
+ flex: 3
+},
+title: {
+  color: '#e74c3c'
 }
 });
