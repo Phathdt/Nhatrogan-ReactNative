@@ -23,10 +23,10 @@ export default class Search extends Component {
     switch (route.name) {
       case 'quan': return (
         <Quan
-          gotoList={(a) => {
+          gotoList={(a, b) => {
             navigator.push({
               name: 'list',
-              thamso: { id: a }
+              thamso: { id: a, pricing: b }
             });
         }}
         />
@@ -43,6 +43,7 @@ export default class Search extends Component {
             });
           }}
           id={route.thamso.id}
+          pricing={route.thamso.pricing}
         />
         );
       case 'detail': return (

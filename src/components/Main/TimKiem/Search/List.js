@@ -7,9 +7,11 @@ import {
   StyleSheet,
   TouchableOpacity,
   ListView,
-  Image
+  Image,
+  Button
 } from 'react-native';
-const URL = 'http://nhatrogan.com/api/v1/search';
+const URL ='http://nhatrogan.com/api/v1/filter?district=';
+const URL2 ='http://nhatrogan.com/api/v1/filter?district=640&pricing=2'
 
 export default class List extends Component {
   constructor() {
@@ -25,7 +27,8 @@ export default class List extends Component {
   }
 
   fetchData() {
-    fetch(URL + '/' + this.props.id)
+    fetch(URL + this.props.id + '&pricing=' + this.props.pricing)
+    // fetch(URL2)
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({
@@ -60,9 +63,12 @@ export default class List extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => this.props.backQuan()} >
-          <Text>Tro ve chon Quan</Text>
-        </TouchableOpacity>
+        <Button
+          onPress={() => this.props.backQuan()}
+          title='Tro ve chon Quan'
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(row) => this.taoHang(row)}
