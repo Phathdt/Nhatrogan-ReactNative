@@ -10,6 +10,8 @@ import {
 import { Container, Header, Item, Input, Icon, Button } from 'native-base';
 
 const URL = 'http://nhatrogan.com/api/v1/posts';
+const URL2 = 'http://nhatrogan.com/api/v1/search?q=';
+const uri = 'URI ne';
 
 export default class List extends Component {
   constructor() {
@@ -25,11 +27,6 @@ export default class List extends Component {
   }
 
   fetchData() {
-    // console.log(URL);
-    // const id = '591529c8c930b352e4f4c20e';
-    // console.log(id);
-    // const temp = URL + '/'+ id ;
-    // console.log(temp);
     fetch(URL)
       .then((response) => response.json())
       .then((responseJson) => {
@@ -60,6 +57,18 @@ export default class List extends Component {
 
     );
   }
+  timkiem() {
+    uri = encodeURI(this.state.text);
+    fetch(URL2 + uri)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        const data = responseJson.posts
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(data)
+        });
+      })
+    .done();
+  }
   render() {
     return (
       <View>
@@ -73,7 +82,7 @@ export default class List extends Component {
                           (text) => this.setState({ text })}
                           value={this.state.text}
                       />
-                      <TouchableOpacity>
+                      <TouchableOpacity onPress={() => { this.timkiem() }}>
                         <Icon name="ios-search" />
                       </TouchableOpacity>
                   </Item>
