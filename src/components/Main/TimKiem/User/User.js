@@ -33,7 +33,13 @@ export default class User extends Component {
         )}
       />
     );
-     case 'SignUp': return (<SignUp />
+     case 'SignUp': return (<SignUp
+       gotoProfile={() => navigator.push(
+         {
+           name: 'Profile'
+         }
+       )}
+     />
      );
      case 'Profile': return (<Profile
        gotoAddPost={() => navigator.push(

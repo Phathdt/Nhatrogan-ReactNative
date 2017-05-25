@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { Container, Content, Picker, Text, Input, Form } from 'native-base';
 
-const URL = 'http://nhatrogan.com/api/v1/me';
+const URL = 'http://nhatrogan.com/auth/login';
 const Token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1OTE1MjVhMGY1NGFkZjAwMjAxZTZjYTEiLCJleHAiOjE0OTYzNDA4NzMsImlhdCI6MTQ5NTczNjA3M30.0KIDLXs16309sV6luaVOkj5RiEv_Y4SAhJ7iVgm7lV8'
 
 export default class SignIn extends Component {
@@ -18,32 +18,44 @@ export default class SignIn extends Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            isLogin: true,
         };
     }
   checkSignIn() {
-    fetch('http://nhatrogan.com/auth/login',
-    {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json'
-        },
-        body: JSON.stringify({
-         email: this.state.email,
-         password: this.state.password,
-       })
+    var details = {
+      'email': this.state.email,
+      'password': this.state.password,
+    };
+
+    var formBody = [];
+    for (var property in details) {
+      var encodedKey = encodeURIComponent(property);
+      var encodedValue = encodeURIComponent(details[property]);
+      formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
+
+    fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Bearer '+Token
+      },
+      body: formBody
     })
     .then((response) => response.json())
     .then((responseJson) => {
-      Token = responseJson;
+      { responseJson.message ? this.setState({ isLogin: false}) : this.setState({ isLogin: true})}
     })
-    .done();
     this.props.gotoProfile();
+
   }
   render() {
     return (
       <View style={styles.container}>
+        <Text>{this.state.isLogin}</Text>
         <Input
               placeholder="email"
               onChangeText={
@@ -57,9 +69,8 @@ export default class SignIn extends Component {
                 (password) => this.setState({ password })}
                 value={this.state.password}
         />
-        <TouchableOpacity>
-          <Text>Login</Text>
-        </TouchableOpacity>
+
+        { this.state.isLogin ? <Text> </Text>: <Text>Sai id/ pass</Text> }
         <Button
           onPress={() => { this.checkSignIn() }}
           title="SignIn"
