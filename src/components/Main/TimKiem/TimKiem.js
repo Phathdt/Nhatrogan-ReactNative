@@ -1,8 +1,8 @@
 import { TabNavigator } from 'react-navigation';
 //import het js trong chuc nang tim kiem
 import Home from './Home/Home.js';
-import NearMe from './NearMe/NearMe.js';
-import Notification from './Notification/Notification.js';
+// import NearMe from './NearMe/NearMe.js';
+// import Notification from './Notification/Notification.js';
 import Search from './Search/Search.js';
 import User from './User/User.js';
 
@@ -10,12 +10,12 @@ const TimKiem = TabNavigator({
   Home: {
     screen: Home,
   },
-  NearMe: {
-    screen: NearMe,
-  },
-  Notification: {
-    screen: Notification,
-  },
+  // NearMe: {
+  //   screen: NearMe,
+  // },
+  // Notification: {
+  //   screen: Notification,
+  // },
   Search: {
     screen: Search,
   },

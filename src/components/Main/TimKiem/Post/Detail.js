@@ -5,7 +5,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   ListView,
-  Image
+  Image,
+  Button
 } from 'react-native';
 
 const URL = 'http://nhatrogan.com/api/v1/posts';
@@ -60,6 +61,10 @@ export default class Detail extends Component {
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(row) => this.taoHang(row)}
+        />
+        <Button
+          onPress={() => { this.props.backList(); }}
+          title="tim kiem tiep"
         />
       </View>
     );

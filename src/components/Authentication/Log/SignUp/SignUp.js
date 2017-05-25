@@ -56,7 +56,6 @@ export default class SignUp extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the SignUp component</Text>
         <Input
               placeholder="name"
               onChangeText={
@@ -71,6 +70,7 @@ export default class SignUp extends Component {
         />
         <Input
               placeholder="password"
+              secureTextEntry={true}
               onChangeText={
                 (password) => this.setState({ password })}
                 value={this.state.password}
@@ -83,7 +83,7 @@ export default class SignUp extends Component {
         />
         <Button
           onPress={() => { this.dangky() }}
-          title="SignIn"
+          title="Dang ky"
         />
       </View>
     );

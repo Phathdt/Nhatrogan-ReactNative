@@ -73,7 +73,11 @@ export default class SignIn extends Component {
         { this.state.isLogin ? <Text> </Text>: <Text>Sai id/ pass</Text> }
         <Button
           onPress={() => { this.checkSignIn() }}
-          title="SignIn"
+          title="Sign In"
+        />
+        <Button
+          onPress={() => { this.props.gotoSignUp(); }}
+          title="Sign Up"
         />
       </View>
     );
