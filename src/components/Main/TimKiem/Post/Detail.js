@@ -46,9 +46,11 @@ export default class Detail extends Component {
           </View>
         <View >
           <Text style={styles.title}>{row.title}</Text>
-          <Text style={styles.gia}> Gia: {row.pricing} </Text>
-          <Text>Dien tich: {row.area}</Text>
+          <Text>Dia chi : {row.fullAddress}</Text>
+          <Text style={styles.gia}>Gia: {row.pricing} trieu dong </Text>
+          <Text>Dien tich: {row.area} m2</Text>
           <Text>{row.shortDescription}</Text>
+          <Text>SDT lien lac : {row.phone}</Text>
         </View>
 
         </View>

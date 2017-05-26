@@ -56,27 +56,27 @@ export default class SignUp extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text>Name :</Text>
         <Input
-              placeholder="name"
               onChangeText={
                 (name) => this.setState({ name })}
                 value={this.state.name}
               />
+        <Text>Email :</Text>
         <Input
-              placeholder="email"
               onChangeText={
                 (email) => this.setState({ email })}
                 value={this.state.email}
         />
+        <Text>password :</Text>
         <Input
-              placeholder="password"
               secureTextEntry={true}
               onChangeText={
                 (password) => this.setState({ password })}
                 value={this.state.password}
         />
+        <Text>Phone</Text>
         <Input
-              placeholder="phone"
               onChangeText={
                 (phone) => this.setState({ phone })}
                 value={this.state.phone}
@@ -84,6 +84,10 @@ export default class SignUp extends Component {
         <Button
           onPress={() => { this.dangky() }}
           title="Dang ky"
+        />
+        <Button
+          onPress={() => { this.props.gotoSignIn() }}
+          title="Huy"
         />
       </View>
     );

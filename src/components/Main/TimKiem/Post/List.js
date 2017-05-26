@@ -48,8 +48,8 @@ export default class List extends Component {
           </View>
         <View style={styles.detail}>
           <Text style={styles.title}>{row.title}</Text>
-          <Text>{row.pricing}</Text>
-          <Text>{row.area}</Text>
+          <Text>{row.pricing} trieu dong</Text>
+          <Text>{row.area} m2</Text>
         </View>
 
         </View>

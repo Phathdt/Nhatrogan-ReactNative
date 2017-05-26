@@ -39,6 +39,11 @@ export default class User extends Component {
            name: 'Profile'
          }
        )}
+       gotoSignIn={() => navigator.push(
+         {
+           name: 'SignIn'
+         }
+       )}
      />
      );
      case 'Profile': return (<Profile

@@ -44,9 +44,10 @@ export default class Profile extends Component {
       <TouchableOpacity onPress={() => this.props.backList()}>
         <View >
         <View >
-          <Text>{row.name}</Text>
+          <Text>Thong tin nguoi dung</Text>
+          <Text>Ten : {row.name}</Text>
           <Text> SDT: {row.phone} </Text>
-          <Text>{row.email}</Text>
+          <Text>Email :{row.email}</Text>
         </View>
 
         </View>
@@ -56,7 +57,6 @@ export default class Profile extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the Profile component</Text>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(row) => this.taoHang(row)}

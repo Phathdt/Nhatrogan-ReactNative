@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Button,
   ToastAndroid,
-  
+
 } from 'react-native';
 import { Container, Content, Picker, Input, Item , Label, Text} from 'native-base';
 // const Item = Picker.Item
@@ -161,6 +161,7 @@ export default class AddPost extends Component {
     return (
       <Container>
           <Content>
+            <Text>Nhap thong tin bai dang</Text>
             <Item floatingLabel>
                 <Label>Tieu de</Label>
                 <Input
@@ -188,7 +189,7 @@ export default class AddPost extends Component {
                 />
             </Item>
             <Item floatingLabel>
-                <Label>short Description</Label>
+                <Label>Ghi chu</Label>
                 <Input
                   onChangeText={
                     (shortDescription) => this.setState({ shortDescription })}
@@ -209,6 +210,11 @@ export default class AddPost extends Component {
           <Button
             onPress={() => { this.dangBai() }}
             title="Dang bai"
+          />
+          <Button
+            onPress={() => { this.props.gotoProfile() }}
+            title="Huy"
+            color="#841584"
           />
       </Container>
     );
